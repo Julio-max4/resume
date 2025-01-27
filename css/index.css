@@ -1,0 +1,461 @@
+/* Imports */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+/* Estilos generales */
+* {
+  box-sizing: border-box;
+}
+
+/* Estilos para Body */
+body {
+  background: #fbfbfb;
+  margin: 0 auto;
+  font-family: "Open Sans", Arial;
+}
+
+/* Estilos para titulos */
+.title, .main-title {
+  font-family: "Segoe UI";
+}
+
+.main-title {
+  text-align: center;
+  font-size: 32px;
+  margin: 0;
+  padding: 6px 0 16px 0;
+  color: #000080;
+}
+
+.title {
+  font-size: 22px;
+  margin: 0;
+  padding: 16px 0;
+}
+
+/* Estilos para Titulo con Logo */
+.logo-title {
+  display: table;
+  margin: 6px auto 16px auto;
+}
+
+.logo-title img {
+  position: relative;
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  vertical-align: text-bottom;
+}
+
+.logo-title h2 {
+  display: inline-block;
+  font-size: 32px;
+  margin: 0;
+  padding: 0;
+  color: #000080;
+}
+
+/* Estilos para Header */
+.header {
+  position: relative;
+  height: 80px;
+  width: 1000px;
+  background: #3598db;
+  margin: 0 auto;
+
+  display: grid;
+  align-content: center;
+}
+
+.icon-container {
+  position: relative;
+  padding: 0 12px;
+}
+
+.icon-container img {
+  display: inline-block;
+  vertical-align: bottom;
+  width: 42px;
+  height: 48px;
+  padding: 3px;
+}
+
+.icon-container img:hover {
+  cursor: pointer;
+}
+
+.icon-container i {
+  display: inline-block;
+  color: white;
+  font-size: 36px;
+}
+
+.icon-container i:hover {
+  cursor: pointer;
+  color: black;
+}
+
+.icon-container p {
+  margin: 0;
+  font-size: 20px;
+  line-height: 49px;
+  color: white;
+  font-weight: bold;
+  font-family: "Segoe UI";
+  float: right;
+}
+
+/* Estilos para Contenedor */
+.body {
+  position: relative;
+  display: flex;
+  width: 1000px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.body-left {
+  position: relative;
+  flex-basis: 65%;
+  padding: 8px 10px 8px 0;
+}
+
+.body-right {
+  position: relative;
+  flex-basis: 35%;
+  padding: 8px 0 8px 0;
+}
+
+.content-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: white;
+  border: 1px solid lightgray;
+  border-left: 4px solid #3598db;
+  padding: 0 16px;
+}
+
+/* Estilos para Texto con Icono */
+.icon-text {
+  position: relative;
+  display: block;
+  margin: 0;
+}
+
+.icon-text i {
+  display: inline-block;
+  font-size: 14px;
+  color: #6a6a6a;
+}
+
+.icon-text p {
+  display: inline-block;
+  margin: 0;
+  font-size: 14px;
+  font-weight: bold;
+  color: #6a6a6a;
+  margin-right: 14px;
+}
+
+/* Estilos para Bloque Proyecto */
+.proyect-block {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 100px;
+  margin: 12px auto;
+  padding: 0 12px;
+
+  background-image: linear-gradient(to top, #e6e9f0 0%, #fff 100%);
+  border: 3px solid #3598db;
+}
+
+.proyect-block:hover {
+  cursor: pointer;
+  border-color: #55f255;
+}
+
+.proyect-block .proyect-title {
+  position: relative;
+  display: block;
+  margin: 12px 0 0 0;
+  height: 80px;
+}
+
+.proyect-block .proyect-title img {
+  display: block;
+  float: left;
+  width: 100px;
+  height: 80px;
+  margin: 0 6px 0 0;
+  border-radius: 6px;
+  border: 1px solid gray;
+}
+
+.proyect-title-wrapper {
+  display: table;
+  margin: 0 auto;
+}
+
+.proyect-block .proyect-title h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.proyect-block .proyect-title p, .tag {
+  display: inline-block;
+  margin: 0;
+  font-weight: bold;
+  color: #3598db;
+
+  font-size: 11px;
+  border: 1px solid #3598db;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.proyect-block .proyect-description {
+  display: table;
+}
+
+.proyect-block .proyect-description p {
+  margin: 0;
+  padding: 8px 0;
+  color: #333;
+  font-size: 14px;
+}
+
+.proyect-block .proyect-description a {
+  position: relative;
+  display: table;
+  float: right;
+  margin: 0;
+  padding: 0;
+  margin-top: -24px;
+  color: #555;
+  font-size: 32px;
+}
+
+.proyect-block .proyect-description a:hover {
+  color: #55f255;
+}
+
+/* Estilos para Perfil */
+.profile-block {
+  position: relative;
+  display: table;
+  padding: 16px 0 0 0;
+}
+
+.circled-photo {
+  position: relative;
+  display: block;
+
+  height: 100px;
+  width: 100px;
+  border: 2px solid black;
+  border-radius: 50%;
+  background: black;
+}
+
+.profile-block .circled-photo {
+  float: left;
+  margin-right: 12px;
+}
+
+.profile-block .profile-title-wrapper {
+  display: inline-block;
+  height: 100px;
+}
+
+.grid-center {
+  display: grid;
+  align-content: center;
+  height: 100%;
+}
+
+.profile-block .profile-title {
+  position: relative;
+  display: block;
+  font-size: 32px;
+  margin: 0;
+  color: black;
+  font-family: "Segoe UI";
+}
+
+.profile-block .profile-subtitle {
+  position: relative;
+  display: block;
+  font-size: 24px;
+  margin: 0;
+  color: #0000bb;
+  font-family: "Segoe UI";
+}
+
+.profile-block .icon-text {
+  margin: 8px 0 0 0;
+}
+
+.profile-block .icon-text i {
+  color: #000080;
+}
+
+.profile-block .icon-text p {
+  color: #444;
+}
+
+/* Estilos para Curriculum */
+.cv-section {
+  position: relative;
+  display: block;
+  margin: 16px 0;
+}
+
+.cv-section .title {
+  position: relative;
+  display: block;
+  font-family: "Segoe UI";
+  text-transform: uppercase;
+  color: #000080;
+
+  font-size: 26px;
+  padding: 0;
+  margin: 0 0 4px 0;
+  border-bottom: 4px solid #000080;
+}
+
+.cv-subsection {
+  margin: 6px 0 12px 0;
+}
+
+.cv-subsection .title {
+  text-transform: none;
+  color: #444;
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+  border-bottom: 0;
+}
+
+.cv-subsection .subtitle {
+  text-transform: none;
+  color: #000090;
+  padding: 0;
+  margin: 2px 0 0 0;
+  font-size: 16px;
+  border-bottom: 0;
+}
+
+.cv-subsection .description p {
+  font-family: "Open Sans", Arial;
+  margin: 4px 0;
+  line-height: 25px;
+}
+
+.cv-subsection .description ul {
+  font-family: "Open Sans", Arial;
+  margin: 4px 0;
+  padding: 0 0 0 20px;
+  line-height: 25px;
+}
+
+/* Estilos para Percent Bar */
+.percent-block {
+  position: relative;
+  display: block;
+  margin: 6px 0;
+}
+
+.percent-block p {
+  display: inline-block;
+  font-family: "Open Sans", Arial;
+  font-weight: bold;
+  margin: 0 12px 0 0;
+  padding: 0;
+  width: 80px;
+  color: #444;
+}
+
+.percent-bar {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  height: 14px;
+  width: 234px;
+  background: #cfeafd;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+.percent-bar .fill {
+  display: block;
+  height: 100%;
+  background: #3598db;
+}
+
+.percent-bar .label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 12px;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+}
+
+/* Estilos para Skill Block */
+.skill-block {
+  position: relative;
+  display: block;
+  margin: 6px 0;
+}
+
+.skill-block p {
+  display: inline-block;
+  font-family: "Open Sans", Arial;
+  font-weight: bold;
+  margin: 0 12px 0 0;
+  padding: 0;
+  width: 80px;
+  color: #444;
+}
+
+.skill-block .filled{
+  display: inline-block;
+  vertical-align: middle;
+  height: 10px;
+  width: 40px;
+  margin-right: 4px;
+  background: #3598db;
+  border: 1px solid black;
+}
+
+.skill-block .unfilled{
+  display: inline-block;
+  vertical-align: middle;
+  height: 10px;
+  width: 40px;
+  margin-right: 4px;
+  background: #cfeafd;
+  border: 1px solid black;
+}
+
+/* Estilos para Footer */
+.footer {
+  width: 1000px;
+  height: 50px;
+  margin: 0 auto;
+  padding: 0 12px;
+
+  background: #3598db;
+  display: grid;
+  align-content: center;
+}
+
+.footer .copyright-container p {
+  color: white;
+  font-size: 14px;
+  margin: 0;
+  padding: 4px 0;
+}

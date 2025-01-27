@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Machine Learning</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/mathjs/8.1.0/math.js"> </script>
+
+    <script type="text/javascript" src = "../js/Graph.js"> </script>
+    <script type="text/javascript" src = "../js/MachineLearning.js"></script>
+    <script type="text/javascript" src = "../js/CreateData.js"> </script>
+    <script type = "text/javascript" src = "../js/main.js"> </script>
+    <script type= "text/javascript" src = ../js/Chart.js> </script>
+
+    <link rel="stylesheet" href="../css/fontello.css">
+    <link rel="stylesheet" href="../css/articulo.css">
+  </head>
+  <body>
+    <div class="header">
+
+      <div class="icon-container">
+        <i class="icon-home" onclick="document.location = '../'"></i>
+        <img id="facultadCiencias" src="../img/facultad_de_ciencias_white.svg" onclick="document.location = 'http://www.fciencias.unam.mx/directorio/101199'">
+        <i class="icon-github-circled" onclick="document.location = 'https://github.com/search?q=braulioceb'"></i>
+        <i class="icon-linkedin-squared" onclick="document.location = 'https://www.linkedin.com/in/braulio-ceballos-15b6a2138/'"></i>
+        <p>Braulio Ceballos</p>
+      </div>
+
+    </div>
+
+    <div class="content-wrapper">
+      <h3 class="date-title"> <span class="tbold">Autor: </span> Braulio Ceballos &nbsp <span class="tbold">Actualizado: </span> Diciembre 2020 </h3>
+      <h2 class="main-title">Machine Learning</h2>
+
+      <div class = "button-wrapper">
+        <button id = "generador" class = "btn" type = "button"  name = "generador">Generador de Datos</button>
+        <button id = "linearRegression" class = "btn" type = "button"  name = "linearRegression">Regresion Lineal</button>
+        <button id = "ridge" class = "btn" type = "button"  name = "ridge">Ridge</button>
+        <button id = "stochastic" class = "btn" type = "button"  name = "stochastic">Estocástico</button>
+      </div>
+
+      <div class = "chart-container">
+        <canvas id="chart"></canvas>
+      </div>
+
+
+      <div class="input-container">
+        <label for="alpha">&alpha;: </label>
+        <input id = "alpha" type="range" name="alpha"  min="0.01" max="0.5" step="0.01" value = "0.25">
+        <span id = "alphaValue" class="range-value">0.25</span>
+      </div>
+
+      <div class="input-container">
+        <label for="lambda">&lambda;: </label>
+        <input id = "lambda" type="range" name="alpha"  min="0.0" max="1" step="0.1" value = "0.5">
+        <span id = "lambdaValue" class="range-value">0.5</span>
+      </div>
+
+      <div class="input-container">
+        <label for="m"> m: </label>
+        <input id ="m" type="range" name="alpha"  min="10" max="20" step="1", value = "15">
+        <span id = "mValue" class="range-value"> 15 </span>
+      </div>
+
+      <div class="text-wrapper">
+        <p>
+          Consideramos una partición, \( x_1, x_2, x_3,...,x_m,\) del intervalo [1,11]
+          con respecto a los valores \(y_1,y_2,...,y_m \), donde cada \( y_i\) se obtiene trás
+          dispersar aleatoreamente el polinomio \( x^3-18x^2+89x-62, \) es decir,
+          \[ y_i \sim x_i^3-18x_i^2+89x_i-62. \] En la gráfica anterior, gráficamos cada pareja de puntos  \( (x_i,y_i) \).
+
+          Sabiendo que los datos se distribuyen casi como un polinomio de grado 3, usamos diferentes algoritmos
+          de Machine Learning para modelar los datos con un polinomio de grado 3. Los algoritmos que usaremos para
+          este proyecto son:
+
+          <ul>
+            <li> Regresión Polinomial, </li>
+            <li> Ridge, </li>
+            <li> Gradiente Estocástico.</li>
+          </ul>
+
+          Ya que desamos modelar los datos con un polinomio de grado 3, entonces la función de hipótesis es
+          \[ h_{\theta}(x) = \theta_0 + \theta_1 x + \theta_2 x^2 + \theta_3 x^3  \]
+          y la matriz de entrenamientos está dada por
+          \[ X =  \begin{bmatrix} 1 & x_1 & x_1^2 & x_1^3 \\
+                                    1 & x_2 & x_2^2 & x_2^3 \\
+                                    \vdots & \vdots  & \vdots  & \vdots \\
+                                    1 & x_m & x_m^2 & x_m^3 \\ \end{bmatrix}. \]
+          De esta manera tenemos la siguiente notación,
+          <ul>
+            <li> \(m\) es el número de entrenamientos, </li>
+            <li> \( \theta  = (\theta_0, \theta_1, \theta_2, \theta_3)\) es el vector de parámetros a estimar, </li>
+            <li>  \( X \) es la  matriz de entrenamientos, </li>
+            <li> \( X^{(i)}\) representa el \(i-\)ésimo entrenamiento, esto es, la \(i-\)ésima fila de la matriz \(X\), </li>
+            <li> \( X_j \) representa la \(j-\)ésima columna de la matriz \( X \), </li>
+            <li> \( y = (y_1, y_2,...,y_m) \) es el vector de datos de salida. </li>
+          </ul>
+
+          La primera fila  de la matriz \(X\) corresponde al "bios" del sistema y las restantes corresponden a los "features" del sistema.
+          Con la intención de mejorar los resultados obtenidos por los diferentes algoritmos de machine learning hemos normalizado
+          cada "feature" de la siguiente forma
+          \[  { X_j -\mu_j \over \sigma_j },\]
+          donde \(\mu_j \) es la media del \(j\)-ésimo "feature" y \(\sigma_j \) es la desviación estándar del \(j\)-ésimo "feature".
+
+          <p>
+           \(n\) representa el número de "features", en nuestro caso \(n=3\). Enumeramos las filas de la matriz de izquierda a derecha
+           con los números de 0 a \(n\).
+         </p>
+
+          <h2 class = "title" > Regresion Lineal</h2>
+          Para este algoritmo de Machine Learning la función de costo está dada por
+          \[ J(\theta_0,\theta_1,\theta_2,\theta_3) = J(\theta) := { 1 \over 2m }\sum_{i=1}^{m} (X^{(i)} \cdot \theta -y_i)^2, \]
+          y el método iterativo del descenso del gradiente para estimar un mínimo local de la función \(J \). Este método iterativo está dado por
+          \[ \theta^{(n+1)} = \theta^{(n)} - \alpha \nabla J(\theta^{(n)}) = \theta^{(n)}- {\alpha \over m} (X^{T} \cdot (X\cdot \theta-y)), \]
+          con \( \theta^{(0)} \) un punto inicial y \(\alpha\) un parámetro entre \((0,1)\). A \( \alpha \) se le conoce como la constante de aprendizaje.
+          <p> El pseudocódigo para este algoritmo es </p>
+          <div class="pseudocode-block">
+            <h2 class="title">Algoritmo: Regresion Lineal </h2>
+            <div class="code">
+              <p>Seleccionar el parámetro \( \alpha\) </p>
+              <p> Repetir hasta converger </p>
+              <p class = "pident1"><span class="tbold titalic"> Para </span> \( j = 0,1, \dots ,n \) hacer</p>
+              <p class="pident2">  \( \theta_j = \theta_j - {\alpha \over m} \left( \sum_{i=1}^{m} (h_{\theta_j}(X^{(i)})-y_i)X^{(i)}_j\right)\) </p>
+              <p class = "pident1"><span class="tbold titalic"> fin </span> </p>
+              <p> <span class="tbold titalic"> fin </p>
+            </div>
+          </div>
+
+          <h2 class = "title" >  Ridge </h2>
+
+          Para este algoritmo de Machine Learning, la función de costo está dada por
+          \[ J(\theta_0,\theta_1,\theta_2,\theta_3) = J(\theta) := { 1 \over 2m }\sum_{i=1}^{m} (X^{(i)} \cdot \theta -y_i)^2 + \lambda \sum_{j=1}^{3} \theta_j^2, \]
+          y el método iterativo del descenso del gradiente para estimar un mínimo local de la función \(J \). Este método iterativo está dado por
+          \[ \theta^{(n+1)} = \theta^{(n)} - \alpha \nabla J(\theta^{(n)})  = \theta^{(n)}- {\alpha \over m} (X^{T} \cdot (X\cdot \theta^{(n)}-y)+ \lambda \xi(\theta^{(n)})), \]
+          con \( \theta^{(0)} \) un punto inicial, \(\alpha \in (0,1)\) el parámetro de aprendizaje, \(\lambda \in (0,1)\) como un paramatro de regularización y con
+          \( \xi(\theta^{(n)}) = (0, \theta_1^{(n)}, \theta_2^{(n)}, \theta_3^{(n)} ) \).
+
+          <p> El pseudocódigo para este algoritmo es </p>
+          <div class="pseudocode-block">
+            <h2 class="title">Algoritmo: Ridge </h2>
+            <div class="code">
+              <p>Seleccionar los parámetros \( \alpha\) y \(\lambda\) </p>
+              <p> Repetir hasta converger </p>
+              <p class="pident1">  \( \theta_0 = \theta_0 - \alpha \left( \sum_{i=1}^{m} (h_{\theta_0}(X^{(i)})-y_i)X^{(i)}_0 \right)\) </p>
+              <p class = "pident1"><span class="tbold titalic"> Para </span> \( j = 1,2,\dots, n \) hacer</p>
+              <p class="pident2">  \( \theta_j = \theta_j - {\alpha \over m } \left( \sum_{i=1}^{m} (h_{\theta_j}(X^{(i)})-y_i)X^{(i)}_j+ { \lambda \over m } \theta_j\right)\) </p>
+              <p class = "pident1"><span class="tbold titalic"> fin </span> </p>
+              <p> <span class="tbold titalic"> fin </p>
+            </div>
+          </div>
+          <h2 class = "title" > Descenso del gradiente estocástico </h2>
+
+          <p> Para este algoritmo de machine learning la función de costo está dada por
+          \[ J(\theta_0,\theta_1,\theta_2,\theta_3) = J(\theta) := { 1 \over 2m }\sum_{i=1}^{m} (X^{(i)} \cdot \theta -y_i)^2, \]
+          y el método iterativo del descenso del gradiente estocástico para estimar un mínimo local de la función \(J \).
+          </p>
+          <p>El pseudocódigo para este algoritmo es</p>
+
+                <div class="pseudocode-block">
+                  <h2 class="title">Algoritmo: Descenso del gradiente estocástico</h2>
+                  <div class="code">
+                    <p>Seleccionar los parametros \( \alpha\) y \( \lambda\)</p>
+                    <p> Permutar aleatoreamente las filas de la matriz X </p>
+                    <p> Repetir hasta converger </p>
+                    <p class = "pident1"><span class="tbold titalic">Para</span> \(i = 1,2,...,m \) hacer:</p>
+                    <p class="pident2"><span class="tbold titalic">Para</span> \( j = 1,2,...,n \) hacer:</p>
+                    <p class="pident3"> \( \theta_j = \theta_j - { \alpha \over m } \left(h_{\theta_j}(X^{(i)})-y_i)X^{(i)}_j \right)\) </p>
+                    <p class= "pident2"><span class="tbold titalic">fin</span> </p>
+                    <p class = "pident1"><span class="tbold titalic">fin</span> </p>
+                    <p> <span class = "tbold titalic">fin </p>
+                  </div>
+                </div>
+
+          <p> A diferencia de los algoritmos de regresión lineal y Ridge,
+          este algoritmo no converge a un mínino local, sino que se queda atrapado en una vecinadad de un mínimo local. En particular, este método es eficiente cuando
+          la cantidad de datos a entrenar es grande, (cuando \(m \) es número un muy grande,) pero presenta deficiencas cuando el número de entranamiento es pequeño. Podremos apreciar
+          este hecho al realizar este algoritmo en las gráfica de este proyecto.
+          </p>
+
+          Así como en Ridge o regresion lineal, cambiar la elección de \( \theta^{(0)}\) puede llevarnos a un mínimo local diferente, la permutación de los datos en este algoritmo afecta
+          la convergencia al mínimo local de la función de costos.
+        </p>
+        <h2 class = "title"> Observaciones </h2>
+        <p> En este proyecto no se permite cambiar el número de iteraciones debido al costo computacional, se fijaron 4000 iteraciones para Ridge y regresión lineal, y 400 para el descenso
+          del gradiente estocástico.
+         </p>
+      </div>
+
+    </div>
+
+    <div class="footer">
+
+      <div class="copyright-container">
+        <p> <i class="icon-copyright"></i> 2020. Derechos reservados a Braulio Ceballos.</p>
+      </div>
+
+    </div>
+
+  </body>
+</html>

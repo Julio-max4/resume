@@ -1,0 +1,246 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+/* Estilos para Body */
+body {
+  background: #fbfbfb;
+  margin: 0 auto;
+  font-family: "Open Sans", Arial;
+}
+
+/* Estilos para titulos */
+.title, .main-title {
+  font-family: "Segoe UI";
+}
+
+.date-title {
+  font-size: 15px;
+  margin: 0;
+  padding: 12px 0 0 0;
+  font-weight: normal;
+  color: gray;
+}
+
+.main-title {
+  text-align: center;
+  font-size: 32px;
+  margin: 0;
+  padding: 6px 0 22px 0;
+}
+
+.title {
+  text-align: center;
+  font-size: 24px;
+  margin: 0;
+  padding: 18px 0;
+}
+
+/* Estilos para Texto */
+.tbold {
+  font-weight: bold !important;
+}
+
+.titalic {
+  font-style: italic !important;
+}
+
+.pident1 {
+  padding-left: 28px !important;
+}
+
+.pident2 {
+  padding-left: 48px !important;
+}
+
+.pident3 {
+  padding-left: 68px !important;
+}
+
+/* Estilos para Header */
+.header {
+  position: relative;
+  height: 80px;
+  width: 1000px;
+  background: #3598db;
+  margin: 0 auto;
+
+  display: grid;
+  align-content: center;
+}
+
+.icon-container {
+  position: relative;
+  padding: 0 12px;
+}
+
+.icon-container img {
+  display: inline-block;
+  vertical-align: bottom;
+  width: 42px;
+  height: 48px;
+  padding: 3px;
+}
+
+.icon-container img:hover {
+  cursor: pointer;
+}
+
+.icon-container i {
+  display: inline-block;
+  color: white;
+  font-size: 36px;
+}
+
+.icon-container i:hover {
+  cursor: pointer;
+  color: black;
+}
+
+.icon-container p {
+  margin: 0;
+  font-size: 20px;
+  line-height: 49px;
+  color: white;
+  font-weight: bold;
+  font-family: "Segoe UI";
+  float: right;
+}
+
+/* Estilos para Contenedor */
+.content-wrapper {
+  position: relative;
+  width: 1000px;
+  height: auto;
+  margin: 8px auto;
+  padding: 0 60px 12px 60px;
+  border: 1px solid lightgray;
+  border-left: 4px solid #3598db;
+
+  background: white;
+  color: black;
+}
+
+/* Estilos para Texto */
+.text-wrapper {
+  line-height: 25px;
+}
+
+/* Estilos para Footer */
+.footer {
+  width: 1000px;
+  height: 50px;
+  margin: 0 auto;
+  padding: 0 12px;
+
+  background: #3598db;
+  display: grid;
+  align-content: center;
+}
+
+.footer .copyright-container p {
+  color: white;
+  font-size: 14px;
+  margin: 0;
+  padding: 4px 0;
+}
+
+/* Estilos para Grafica */
+.chart-container {
+  position: relative;
+  height: auto;
+  margin: 8px auto;
+  padding: 0;
+}
+
+/* Estilos para Botones */
+.button-wrapper {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.btn {
+  position: relative;
+  display: inline-block;
+  border-radius: 15px;
+  border: 1px solid gray;
+  padding: 6px 16px;
+  margin-right: 8px;
+
+  font-size: 16px;
+  background: #e8eef2;
+}
+
+.btn:hover {
+  background: #3598db;
+  color: white;
+  cursor: pointer;
+}
+
+/* Estilos para Inputs */
+.input-container {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.input-container label {
+  display: inline-block;
+  vertical-align: top;
+  line-height: 22px;
+  width: 20px;
+}
+
+.input-container .range-value {
+  display: inline-block;
+  vertical-align: top;
+  line-height: 22px;
+  padding: 1px 8px;
+  border: 1px solid gray;
+  border-radius: 4px;
+}
+
+.input-container input[type="range"] {
+  width: 45%;
+}
+
+/* Estilos para Pseudocodigo */
+.pseudocode-block {
+  display: table;
+  position: relative;
+  margin: 0 auto;
+  padding: 0;
+  min-width: 400px;
+}
+
+.pseudocode-block .title {
+  text-align: center;
+  margin: 0;
+  padding: 6px 8px;
+  background: #e8eef2;
+
+  font-family: "Segoe UI";
+  font-style: italic;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.pseudocode-block .code {
+  border-left: 8px solid #3598db;
+  background: #fcfcfc;
+}
+
+.pseudocode-block .code p {
+  padding: 4px 8px;
+  margin: 0;
+  font-family: "Hind Siliguri", sans-serif;
+}
+
+.pseudocode-block .code p:nth-child(2n) {
+  background: #cfeafd;
+}
